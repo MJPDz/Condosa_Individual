@@ -6,6 +6,6 @@ object GastosMesAnteriorSource {
     val gastosMesAnterior = listOf(
         GastosMesAnterior("1", "Nombre Apellido", 700),
         GastosMesAnterior("2", "Nombre Apellido", 800),
-        GastosMesAnterior("3", "Nombre Apellido", 700),
+        GastosMesAnterior("3", "Nombre Apellido", 900),
     )
 }
