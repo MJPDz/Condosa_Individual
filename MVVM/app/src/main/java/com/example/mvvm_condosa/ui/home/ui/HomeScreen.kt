@@ -25,20 +25,14 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.mvvm_condosa.R
-import com.example.mvvm_condosa.ui.navigation.NavBar
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun HomePreview() {
-    NavBar()
-}
+import com.example.mvvm_condosa.ui.navigation.AppScreens
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     val gradient = Brush.linearGradient(
         0.0f to Color(0xFF0052D6),
         1000.0f to Color(0xFF00183F),
@@ -46,12 +40,12 @@ fun HomeScreen() {
         end = Offset.Infinite
     )
     Box(modifier = Modifier.background(gradient)){
-        Home()
+        Home(navController)
     }
 }
 
 @Composable
-fun Home() {
+fun Home(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -72,7 +66,7 @@ fun Home() {
         Spacer(modifier = Modifier.padding(40.dp))
         TitleOptionsHome()
         Spacer(modifier = Modifier.padding(12.dp))
-        OptionsHome()
+        OptionsHome(navController)
         Spacer(modifier = Modifier.padding(60.dp))
         FooterHome()
         Spacer(modifier = Modifier.padding(12.dp))
@@ -168,7 +162,7 @@ fun TitleOptionsHome() {
 }
 
 @Composable
-fun OptionsHome() {
+fun OptionsHome(navController: NavController) {
     Button(
         onClick = { },
         modifier = Modifier
@@ -198,7 +192,7 @@ fun OptionsHome() {
     }
     Spacer(modifier = Modifier.padding(8.dp))
     Button(
-        onClick = { },
+        onClick = { navController.navigate(route = AppScreens.CajaChicaScreen.route) },
         modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),

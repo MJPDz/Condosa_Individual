@@ -34,33 +34,29 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.navigation.NavController
+import com.example.mvvm_condosa.ui.navigation.AppScreens
 
 @Composable
-fun LoginBackground() {
+fun LoginScreen(navController: NavController) {
     val gradient = Brush.linearGradient(
         0.0f to Color(0xFF0052D6),
         1000.0f to Color(0xFF00183F),
         start = Offset.Zero,
         end = Offset.Infinite
     )
-    Box(modifier = Modifier.background(gradient)){
-        LoginScreen()
-    }
-}
-
-@Composable
-fun LoginScreen() {
     Box(
         modifier = Modifier
+            .background(gradient)
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        Login( Modifier.align(Alignment.Center))
+        Login( Modifier.align(Alignment.Center), navController)
     }
 }
 
 @Composable
-fun Login(modifier: Modifier) {
+fun Login(modifier: Modifier, navController: NavController) {
     Column(
         modifier = Modifier
     ) {
@@ -74,7 +70,7 @@ fun Login(modifier: Modifier) {
         Spacer(modifier = Modifier.padding(8.dp))
         ForgotPassword(Modifier.align(Alignment.End))
         Spacer(modifier = Modifier.padding(16.dp))
-        LoginButton()
+        LoginButton(navController)
     }
 }
 
@@ -102,9 +98,9 @@ fun HeaderText() {
 }
 
 @Composable
-fun LoginButton() {
+fun LoginButton(navController: NavController) {
     Button(
-        onClick = { },
+        onClick = { navController.navigate(route = AppScreens.HomeScreen.route) },
         modifier = Modifier
             .fillMaxWidth()
             .height(48.dp),
