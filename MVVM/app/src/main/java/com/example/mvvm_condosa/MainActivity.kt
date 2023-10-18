@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     //NavBar()
                     AppNavigation()
+                    // cambio de prueba
                 }
             }
         }
