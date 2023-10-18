@@ -30,13 +30,13 @@ fun AppNavigation() {
             GastosMesAnteriorScreen()
         }
         composable(route = AppScreens.RegistroGastosScreen.route) {
-            RegistroGastosScreen()
+            RegistroGastosScreen(navController)
         }
         composable(route = AppScreens.GastosScreen.route) {
             GastosScreen()
         }
         composable(route = AppScreens.AnadirGastoScreen.route) {
-            AnadirGastosScreen()
+            AnadirGastosScreen(navController)
         }
     }
 }
